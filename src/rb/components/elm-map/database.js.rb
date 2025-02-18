@@ -7,6 +7,7 @@ export default class CDatabase
 
   def air_quality_data(&callback)
     query = "SELECT * FROM air_quality WHERE aqi IS NOT NULL;"
+    #lol
 
     Net.bef(query) do |rows|
       have_rows = rows && rows.length > 0
