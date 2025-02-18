@@ -1,6 +1,7 @@
 export default function handler(req, res) {
   let sqlQuery = req.query.query;
   let database = process.env.DATABASE;
+  console.log(database);
   let options = {db: database, query: sqlQuery, tokens: getTokens()};
   return query(options, response => res.status(200).json(response))
 };
