@@ -2,7 +2,7 @@
 export default def handler(req, res)
   sql_query = req.query.query
   database  = process.env.DATABASE
-  puts database
+  
   options = {
     db: database,
     query: sql_query,
