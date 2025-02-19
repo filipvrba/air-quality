@@ -8,7 +8,7 @@ export default class ElmMap < HTMLElement
   STATES = {
     cs_center: {
       geo:  [49.8175, 15.4730],
-      zoom: 7
+      zoom: 7.9
     }
   }
 
@@ -24,7 +24,7 @@ export default class ElmMap < HTMLElement
 
   def connected_callback()
     @c_database.air_quality_data() do |data|
-      puts data
+      @c_markers.add_on_map(data)
     end
   end
 

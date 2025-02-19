@@ -16,7 +16,7 @@ export default class ElmMap extends HTMLElement {
   };
 
   connectedCallback() {
-    return this._cDatabase.airQualityData(data => console.log(data))
+    return this._cDatabase.airQualityData(data => this._cMarkers.addOnMap(data))
   };
 
   disconnectedCallback() {
@@ -29,4 +29,4 @@ export default class ElmMap extends HTMLElement {
   }
 };
 
-ElmMap.STATES = {csCenter: {geo: [49.817_5, 15.473], zoom: 7}}
+ElmMap.STATES = {csCenter: {geo: [49.817_5, 15.473], zoom: 7.9}}
