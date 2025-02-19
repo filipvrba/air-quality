@@ -13,10 +13,12 @@ export default class CDatabase {
       let haveRows = rows && rows.length > 0;
 
       if (haveRows) {
+        result = [];
+
         result = rows.map(h => ({
           aqi: h.aqi,
           geo: h.geo.split(","),
-          name: atob(h.name),
+          name: h.name.replaceAll("\n", "").decodeBase64(),
           utime: h.utime
         }));
 

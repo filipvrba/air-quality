@@ -12,11 +12,12 @@ export default class CDatabase
       have_rows = rows && rows.length > 0
 
       if have_rows
+        result = []
         result = rows.map do |h|
           {
             aqi:   h.aqi,
             geo:   h.geo.split(','),
-            name:  atob(h.name),
+            name:  h.name.gsub("\n", '').decode_base64(),
             utime: h.utime,
           }
         end
